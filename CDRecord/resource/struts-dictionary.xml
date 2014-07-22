@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="dictionary" namespace="/dictionary" extends="webrootpackage">
+		<action name="DicCategory_*" method="{1}" class="com.kszit.CDReport.cor.controler.DicCategory">
+			<result name="input">/example/Login.jsp</result>
+			<result type="redirectAction">Menu</result>
+		</action>
+		<action name="Dictionary_*" class="com.kszit.CDReport.cor.controler.Dictionary" method="{1}">
+			<result name="input">/example/Login.jsp</result>
+			<result type="redirectAction">Menu</result>
+		</action>
+	</package>
+	
+	<package name="dictionary_json" namespace="/dictionary_json" extends="json-default">
+		<action name="dictCateChild" method="dicCateChilds" class="com.kszit.CDReport.cor.controler.DicCategory" >
+			<result type="json">
+				<param name="root">dicCateList</param>
+			</result>
+		</action>
+		<action name="CategoryListJson" method="listByJson" class="com.kszit.CDReport.cor.controler.DicCategory" >
+			<result type="json">
+				<param name="root">dicCateList</param>
+			</result>
+		</action>
+		<action name="listJson" method="listByJson" class="com.kszit.CDReport.cor.controler.Dictionary" >
+			<result type="json">
+				<param name="root">dictMap</param>
+			</result>
+		</action>
+				<action name="listByJsonByBindid" method="listByJsonByBindid" class="com.kszit.CDReport.cor.controler.Dictionary" >
+			<result type="json">
+				<param name="root">dictMap</param>
+			</result>
+		</action>
+		
+	</package>
+</struts>

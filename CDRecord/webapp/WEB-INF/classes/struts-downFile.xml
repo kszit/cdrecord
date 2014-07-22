@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <package name="file" namespace="/file" extends="webrootpackage">
+        <action name="excelModel" method="excelModel" class="com.kszit.CDReport.cor.controler.ExcelDownLoad">
+            <result name="success" type="stream">  
+                <!-- 对应ReportsAction中的属性contentType -->  
+                <param name="contentType">${contentType}</param>  
+                <!-- ReportsAction中对应的InputStream的属性名 -->  
+                <param name="inputName">reportStream</param>  
+                <!-- 对应ReportsAction中的属性fileName，定义流输出格式 -->  
+                <param name="contentDisposition">${fileName}</param>  
+                <!-- 定义bufferSize，可选 -->  
+                <param name="bufferSize">1024</param>  
+            </result>
+        </action>
+        <action name="excelData" method="excelData" class="com.kszit.CDReport.cor.controler.ExcelDownLoad">
+            <result name="success" type="stream">  
+                <!-- 对应ReportsAction中的属性contentType -->  
+                <param name="contentType">${contentType}</param>  
+                <!-- ReportsAction中对应的InputStream的属性名 -->  
+                <param name="inputName">reportStream</param>  
+                <!-- 对应ReportsAction中的属性fileName，定义流输出格式 -->  
+                <param name="contentDisposition">${fileName}</param>  
+                <!-- 定义bufferSize，可选 -->  
+                <param name="bufferSize">1024</param>  
+            </result>
+        </action>
+        <action name="excelModelUpload" method="excelModelUpload" class="com.kszit.CDReport.cor.controler.ExcelUpload">
+            <!-- 动态设置savePath的属性值 -->
+            <result name="success">/WEB-INF/page/message.jsp</result>
+            <interceptor-ref name="fileUpload">
+                <!-- 文件过滤 -->
+                <param name="allowedTypes">application/vnd.ms-excel</param>
+                <!-- 文件大小, 以字节为单位 -->
+                <param name="maximumSize">102595600</param>
+                
+                <param name="struts.multipart.saveDir">d:/tmp</param>
+            </interceptor-ref>
+            <!-- 默认拦截器必须放在fileUpload之后，否则无效 -->
+            <interceptor-ref name="defaultStack" />           
+        </action>     
+        <action name="userPicUpload" method="userPicUpload" class="com.kszit.CDReport.cor.controler.ExcelUpload">
+            <!-- 动态设置savePath的属性值 -->
+            <!-- 
+            <result name="success">/WEB-INF/page/message.jsp</result>
+             -->
+            <interceptor-ref name="fileUpload">
+                <!-- 文件过滤 -->
+                <!-- 
+                <param name="allowedTypes">application/vnd.ms-excel</param>
+                 -->
+                <!-- 文件大小, 以字节为单位 -->
+                <param name="maximumSize">102595600</param>
+                
+                <param name="struts.multipart.saveDir">d:/tmp</param>
+            </interceptor-ref>
+            <!-- 默认拦截器必须放在fileUpload之后，否则无效 -->
+            <interceptor-ref name="defaultStack" />           
+        </action>    
+    </package>
+</struts>

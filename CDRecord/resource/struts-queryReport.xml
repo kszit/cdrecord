@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	
+	<package name="queryReport" namespace="/queryReport" extends="webrootpackage">
+		<action name="queryReport_*" method="{1}" class="com.kszit.CDReport.cor.controler.QueryReportControler">
+			<result name="allReportMainPage">/queryReport/allReportMainPage.jsp</result>
+			<result name="setQueryConditonPage">/queryReport/setQueryConditonPage.jsp</result>
+			<result name="queryResultPage">/queryReport/queryResultPage.jsp</result>
+		</action>
+	</package>
+	
+
+</struts>

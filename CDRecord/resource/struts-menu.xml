@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="menu" namespace="/menu" extends="webrootpackage">
+		<action name="menu_*" method="{1}" class="com.kszit.CDReport.cor.controler.Menu">
+			<result name="input">/config/report/headerRowConfig.jsp</result>
+		</action>
+	</package>
+	<package name="menu_json" namespace="/menu_json" extends="json-default">
+		<action name="menuTreeNodes" method="listTreeNodeByJson" class="com.kszit.CDReport.cor.controler.Menu" >
+			<result type="json">
+				<param name="root">treeNodes</param>
+			</result>
+		</action>
+		<action name="menuGridDatas" method="menuGridDatas" class="com.kszit.CDReport.cor.controler.Menu" >
+			<result type="json">
+				<param name="root">map</param>
+			</result>
+		</action>
+	</package>
+</struts>

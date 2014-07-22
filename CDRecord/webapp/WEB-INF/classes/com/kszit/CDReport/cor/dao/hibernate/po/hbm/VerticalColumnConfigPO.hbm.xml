@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.kszit.CDReport.cor.dao.hibernate.po">
+	<class name="VerticalColumnConfigPO" table="VerticalColumnConfig">
+        <id name="id" column="ID">
+            <generator class="native"/>
+        </id>
+        <property name="bindId"/>
+        <property name="_parent"/>
+        <property name="_is_leaf"/>
+        <property name="content"/>
+       	<property name="dataCode"/>
+        <property name="dataType"/>
+        <property name="dataLength"/>
+        <property name="isEmpty"/>
+        <property name="defaultValue"/>
+        <property name="UIModule"/>
+        <property name="UIModuleDS"/>
+        <property name="dataFrom"/>
+        <property name="dataRule"/>
+        <property name="dataRelation"/>
+        <property name="width"/>
+        <property name="height"/>
+        <property name="orderIndexStr"/>	
+        <property name="reportBindid"/>
+    </class>
+</hibernate-mapping>

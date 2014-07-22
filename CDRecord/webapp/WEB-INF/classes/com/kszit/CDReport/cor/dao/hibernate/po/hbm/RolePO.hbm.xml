@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.kszit.CDReport.cor.dao.hibernate.po">
+	<class name="RolePO" table="role">
+        <id name="id" column="ID">
+            <generator class="native"/>
+        </id>
+        <property name="bindId"/>
+        <property name="orderIndex"/>
+        <property name="name"/>
+        <property name="remark"/>
+        <property name="menus"/>
+        
+        <set name="persions" table="persion_role" inverse="true">  
+            <key column="role_id" />  
+            <many-to-many class="PersionPO" column="persion_id"/>  
+        </set>  
+    </class>
+</hibernate-mapping>

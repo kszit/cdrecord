@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="reportData" namespace="/reportData" extends="webrootpackage">
+		<action name="reportData_*" method="{1}" class="com.kszit.CDReport.cor.controler.ReportData">
+			<result name="userMainPage">/reportData/userMainPage.jsp</result>
+			<result name="appearReportListOfDeptAndMonthPage">/reportData/appearReportListOfDeptAndMonth.jsp</result>
+			
+			<result name="input">/reportData/inputPage.jsp</result>
+			<result name="seePage">/reportData/seePage.jsp</result>
+			<result name="listPage">/reportData/dataReportList.jsp</result>
+			<result name="listPageOfMyVerify">/reportData/dataReportListOfMyVerify.jsp</result>
+			<result name="listPageOfMyArchive">/reportData/dataReportListOfMyArchive.jsp</result>
+			<result name="listPageOfMyRollback">/reportData/dataReportListOfMyRollback.jsp</result>
+			
+			<result name="listPageVerify">/reportData/dataReportListVerify.jsp</result>
+			<result name="reportAppearMainPage">/reportData/reportAppearMainPage.jsp</result>
+			<result name="reportAppearPage">/reportData/reportAppearPage.jsp</result>
+			<result name="departmentAppearPage">/reportData/departmentAppearPage.jsp</result>
+			<result name="departmentAppareListPage">/reportData/departmentAppareListPage.jsp</result>
+			
+			<result name="inputPageOfGrid">/reportData/inputPageOfGrid.jsp</result>
+			<result name="inputPageOfTreeGrid">/reportData/inputPageOfTreeGrid.jsp</result>
+			<result name="seePageOfTreeGrid">/reportData/seePageOfTreeGrid.jsp</result>
+			
+			
+			<result name="jsonDataPage">/common/jsonData.jsp</result>
+			
+		</action>		
+	</package>
+	<package name="reportData_json" namespace="/reportData_json" extends="json-default">
+		<action name="reportDataSave" method="saveData" class="com.kszit.CDReport.cor.controler.ReportData">
+			<result type="json">   
+			 	<param name="ignoreHierarchy">false</param>  
+				<param name="includeProperties">actionErrors\[\d+\],actionMessages\[\d+\],fieldErrors\..+$,dataReportModel\..+$</param>  
+			</result>
+			<result name="input">/reportData/inputPage.jsp</result>
+		</action>
+		<!-- 报表已经上报单位的树形结构,  -->
+        <action name="getDeptTreeOfappearReport" method="getDeptTreeOfappearReport" class="com.kszit.CDReport.cor.controler.ReportData" >
+            <result type="json">
+                <param name="root">selectDepartmentTreeObjects</param>
+            </result>
+        </action>  
+        <!-- 报表已经上报时期的树形结构,  -->
+        <action name="getPeriodTreeOfappearReport" method="getPeriodTreeOfappearReport" class="com.kszit.CDReport.cor.controler.ReportData" >
+            <result type="json">
+                <param name="root">selectDepartmentTreeObjects</param>
+            </result>
+        </action>               
+	</package>
+</struts>

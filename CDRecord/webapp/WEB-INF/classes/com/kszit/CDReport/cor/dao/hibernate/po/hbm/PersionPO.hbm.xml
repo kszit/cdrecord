@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.kszit.CDReport.cor.dao.hibernate.po">
+    <class name="PersionPO" table="persion">
+        <id name="id" column="ID">
+            <generator class="native"/>
+        </id>
+        <property name="bindId"/>
+        <property name="orderIndex"/>
+        <property name="name"/>
+        <property name="loginName"/>
+        <property name="password"/>
+        <property name="depId"/>
+        <set name="roles" table="persion_role" >  
+            <!-- 通过key属性告诉hibernate在中间表里面查询teacher_id值相应的teacher记录 -->  
+            <key column="persion_id" />  
+            <!-- 通过column项告诉hibernate对student表中查找student_id值相就的studnet记录 -->  
+            <many-to-many class="RolePO" column="role_id" />  
+        </set> 
+    </class>
+</hibernate-mapping>

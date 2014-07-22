@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.kszit.CDReport.cor.dao.hibernate.po">
+	<class name="DictionaryPO" table="dictionary">
+        <id name="id" column="ID">
+            <generator class="native"/>
+        </id>
+        <property name="bindId"/>
+        <property name="name"/>
+        <property name="describe2"/>
+        <property name="used"/>
+        <property name="orderIndex"/>
+        <property name="type"/>
+    </class>
+</hibernate-mapping>

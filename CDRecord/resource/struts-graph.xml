@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	
+	<package name="graphData" namespace="/graphData" extends="webrootpackage">
+		<action name="graphD_*" method="{1}" class="com.kszit.CDReport.cor.controler.graph.GraphDataControl">
+			<result name="graphDataPiePage">/reportGraph/graphDataPiePage.jsp</result>
+			<result name="functionChartsPage">/reportGraph/functionChartsPage.jsp</result>
+		
+		</action>
+	</package>
+	<package name="graphConfig" namespace="/graphConfig" extends="webrootpackage">
+		<action name="graphC_*" method="{1}" class="com.kszit.CDReport.cor.controler.graph.GraphConfig">
+			<result name="configListPage">/reportGraph/graphConfigList.jsp</result>
+			<result name="inputConfigPage">/reportGraph/inputConfigPage.jsp</result>
+		</action>
+	</package>
+	
+	<package name="graphConfig_json" namespace="/graphConfig_json" extends="json-default">
+		<!-- 保存配置主表-->
+		<action name="insertConfig" method="insertAction" class="com.kszit.CDReport.cor.controler.graph.GraphConfig" >
+			<result type="json">
+			 	<param name="ignoreHierarchy">false</param>  
+				<param name="includeProperties">actionErrors\[\d+\],actionMessages\[\d+\],fieldErrors\..+$,graphCMModel\..+$</param>  
+			</result>
+		</action>
+				<!-- 图表可查询单位的树形数据,  -->
+        <action name="setQueryDepartment" method="setQueryDepartment" class="com.kszit.CDReport.cor.controler.graph.GraphConfig" >
+            <result type="json">
+                <param name="root">selectDepartmentTreeObjects</param>
+            </result>
+        </action>
+				<!-- 图表可查询单位的树形数据,  -->
+        <action name="setDeptOfReportMain" method="setDeptOfReportMain" class="com.kszit.CDReport.cor.controler.graph.GraphConfig" >
+            <result type="json">
+                <param name="root">selectDepartmentTreeObjects</param>
+            </result>
+        </action>
+				<!-- 图表可查询单位的树形数据,  -->
+        <action name="setDeptOfReportSub" method="setDeptOfReportSub" class="com.kszit.CDReport.cor.controler.graph.GraphConfig" >
+            <result type="json">
+                <param name="root">selectDepartmentTreeObjects</param>
+            </result>
+        </action>
+	</package>
+	
+	
+	
+</struts>

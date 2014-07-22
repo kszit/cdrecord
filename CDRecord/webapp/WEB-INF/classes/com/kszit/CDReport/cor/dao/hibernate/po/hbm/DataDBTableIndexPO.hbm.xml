@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.kszit.CDReport.cor.dao.hibernate.po">
+	<class name="DataDBTableIndexPO" table="dataTableIndex">
+        <id name="id" column="ID">
+            <generator class="native"/>
+        </id>
+        <property name="tableName"/>
+        <property name="reportId"/>
+        <property name="orderIndex"/>
+        <property name="bindId"/>
+    </class>
+</hibernate-mapping>

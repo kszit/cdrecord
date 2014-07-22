@@ -1,0 +1,32 @@
+SecurityContextPersistenceFilter
+
+ConcurrentSessionFilter
+
+LogoutFilter
+
+UsernamePasswordAuthenticationFilter
+
+DefaultLoginPageGeneratingFilter
+
+BasicAuthenticationFilter
+
+RequestCacheAwareFilter
+
+SecurityContextHolderAwareRequestFilter
+
+RememberMeAuthenticationFilter
+
+AnonymousAuthenticationFilter
+
+SessionManagementFilter
+
+ExceptionTranslationFilter
+
+FilterSecurityInterceptor
+
+[[ Ant [pattern='/timeout.jsp'], []], [ Ant [pattern='/login.jsp'], []], [ Ant [pattern='/test/**'], []], [ Ant [pattern='/resources/**'], []], [ org.springframework.security.web.util.AnyRequestMatcher@1, [org.springframework.security.web.context.SecurityContextPersistenceFilter@72feb9f8, org.springframework.security.web.session.ConcurrentSessionFilter@316383c3, org.springframework.security.web.authentication.logout.LogoutFilter@7c5f9089, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@660a5229, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@2f983615, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@3206b51c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@565c5aec, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4955683f, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@62f25b6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@154d2e6, org.springframework.security.web.session.SessionManagementFilter@67e1fab8, org.springframework.security.web.access.ExceptionTranslationFilter@25137b50, com.hisuntech.base.security.filter.MySecurityFilter@2204d434, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6b07b35e]]]
+
+
+
+
+[org.springframework.security.web.context.SecurityContextPersistenceFilter@72feb9f8, org.springframework.security.web.session.ConcurrentSessionFilter@316383c3, org.springframework.security.web.authentication.logout.LogoutFilter@7c5f9089, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@660a5229, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@2f983615, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@3206b51c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@565c5aec, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4955683f, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@62f25b6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@154d2e6, org.springframework.security.web.session.SessionManagementFilter@67e1fab8, org.springframework.security.web.access.ExceptionTranslationFilter@25137b50, com.hisuntech.base.security.filter.MySecurityFilter@2204d434, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6b07b35e]

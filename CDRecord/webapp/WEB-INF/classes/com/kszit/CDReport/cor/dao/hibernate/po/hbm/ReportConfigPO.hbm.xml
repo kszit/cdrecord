@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.kszit.CDReport.cor.dao.hibernate.po">
+	<class name="ReportConfigPO" table="reportconfig">
+        <id name="id" column="ID">
+            <generator class="native"/>
+        </id>
+        <property name="bindId"/>
+        <property name="reportName"/>
+        <property name="reportNo"/>
+        <property name="rtyear"/>
+        <property name="rttype"/>
+        <property name="type"/>
+        <property name="rtdeclare"/>
+        <property name="reportState"/>
+        <property name="inputDate"/>
+        <property name="inputUser"/>
+        <property name="orderIndex"/>
+        <property name="rtversion2"/>
+        <property name="userDeptBindid"/>
+        <property name="appearUser"/>
+        <property name="appearDepartment"/>     
+        <property name="reportLink"/>   
+        <property name="aheadOrDelayType"/>     
+        <property name="aheadOrDelayDates"/>   
+        <property name="collectDept"/>     
+        <property name="queryDept"/>  
+    </class>
+</hibernate-mapping>

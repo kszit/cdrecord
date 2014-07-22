@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="department" namespace="/department" extends="webrootpackage">
+		<!-- 配置主表-->
+		<action name="reportConfig_*" method="{1}" class="com.kszit.CDReport.cor.controler.DepartmentControler">
+		</action>
+	</package>
+	<package name="department_json" namespace="/department_json" extends="json-default">
+		<!-- 树形表格json数据   组织机构-->
+		<action name="departmentJson" method="getDepartmentJSON" class="com.kszit.CDReport.cor.controler.DepartmentControler" >
+			<result type="json">
+				<param name="root">departmentList</param>
+			</result>
+		</action>
+	</package>
+</struts>

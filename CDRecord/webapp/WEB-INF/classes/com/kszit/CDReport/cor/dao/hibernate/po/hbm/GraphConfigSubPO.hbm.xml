@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.kszit.CDReport.cor.dao.hibernate.po.graph">
+	<class name="GraphConfigSubPO" table="graphConfigSub" mutable="false">
+        <id name="id" column="ID">
+            <generator class="native"/>
+        </id>
+        <property name="bindId"/>
+        <property name="orderIndex"/>
+        <property name="mainBindid"/>
+        <property name="tableLinkBindid"/>
+        <property name="tableCells" type="text"/>
+        <property name="periodsType"/>
+        <property name="isAddUp"/>
+        <property name="startDay"/>
+        <property name="endDay"/>
+        <property name="deptIds"/>
+    </class>
+</hibernate-mapping>

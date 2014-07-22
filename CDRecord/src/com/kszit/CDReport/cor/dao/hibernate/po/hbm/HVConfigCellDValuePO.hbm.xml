@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.kszit.CDReport.cor.dao.hibernate.po">
+	<class name="HVConfigCellDValuePO" table="hvCellDValue">
+        <id name="id" column="ID">
+            <generator class="native"/>
+        </id>
+        <property name="bindId"/>
+        <property name="reportBindid"/>
+        <property name="hbindid"/>
+        <property name="vbindid"/>
+        <property name="defaultValue"/>
+        <property name="dataType"/>
+        <property name="orderIndex"/>
+    </class>
+</hibernate-mapping>

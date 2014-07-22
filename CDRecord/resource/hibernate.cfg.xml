@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <!-- Database connection settings -->
+     
+    <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="connection.url">jdbc:mysql://localhost/reportdata</property>
+    <property name="connection.username">root</property>
+    <property name="connection.password">root</property>
+     <!--
+    <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="connection.url">jdbc:mysql://w.rdc.sae.sina.com.cn:3307/app_cdrecord</property>
+    <property name="connection.username">njk5lnlyz5</property>
+    <property name="connection.password">m5jz5hi52y204x255wx0wyzijij5jkz42kxxkk53</property>
+    -->
+    
+    
+    
+    <!-- JDBC connection pool (use the built-in) -->
+    <property name="connection.pool_size">1</property>
+    <!-- SQL dialect -->
+    <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+    <!-- Enable Hibernate's automatic session context management -->
+    <property name="current_session_context_class">thread</property>
+    <!-- Disable the second-level cache  -->
+    <property name="cache.provider_class">org.hibernate.cache.internal.NoCacheProvider</property>
+    <!-- Echo all executed SQL to stdout -->
+    <property name="show_sql">true</property>
+    <!-- Drop and re-create the database schema on startup -->
+    <property name="hbm2ddl.auto">update</property>
+    <!-- 
+        <mapping resource="org/hibernate/tutorial/domain/Event.hbm.xml"/>
+		<mapping resource="org/hibernate/tutorial/domain/Person.hbm.xml"/>
+		 -->
+    <!-- 数据字典 -->
+    <mapping resource="com/kszit/CDReport/cor/dao/hibernate/po/hbm/DictCategoryPO.hbm.xml"/>
+    <mapping resource="com/kszit/CDReport/cor/dao/hibernate/po/hbm/DictionaryPO.hbm.xml"/>
+    <!-- 菜单 -->
+    <mapping resource="com/kszit/CDReport/cor/dao/hibernate/po/hbm/MenuPO.hbm.xml"/>
+    <!-- 报表配置 -->
+    <mapping resource="com/kszit/CDReport/cor/dao/hibernate/po/hbm/ReportConfigPO.hbm.xml"/>
+    <mapping resource="com/kszit/CDReport/cor/dao/hibernate/po/hbm/HeaderRowConfigPO.hbm.xml"/>
+    <mapping resource="com/kszit/CDReport/cor/dao/hibernate/po/hbm/VerticalColumnConfigPO.hbm.xml"/>
+    <mapping resource="com/kszit/CDReport/cor/dao/hibernate/po/hbm/HVConfigDataFromPO.hbm.xml"/>
+    <mapping resource="com/kszit/CDReport/cor/dao/hibernate/po/hbm/HVConfigUIModelPO.hbm.xml"/>
+    <mapping resource="com/kszit/CDReport/cor/dao/hibernate/po/hbm/HVConfigCellDValuePO.hbm.xml"/><!-- 单元格默认值 -->
+    <!-- 报表填报 -->
+    <mapping resource="com/kszit/CDReport/cor/dao/hibernate/po/hbm/DataDBTableIndexPO.hbm.xml"/>
+    <mapping resource="com/kszit/CDReport/cor/dao/hibernate/po/hbm/DataCellPO.hbm.xml"/>
+    <mapping resource="com/kszit/CDReport/cor/dao/hibernate/po/hbm/DataReportPO.hbm.xml"/>
+    <!-- 静态变量 -->
+    <mapping resource="com/kszit/CDReport/cor/dao/hibernate/po/hbm/StaticIndexPO.hbm.xml"/>
+    <!-- 组织机构角色人员 -->
+    <mapping resource="com/kszit/CDReport/cor/dao/hibernate/po/hbm/DepartmentPO.hbm.xml"/>
+    <mapping resource="com/kszit/CDReport/cor/dao/hibernate/po/hbm/PersionPO.hbm.xml"/>
+    <mapping resource="com/kszit/CDReport/cor/dao/hibernate/po/hbm/RolePO.hbm.xml"/>
+    <!-- 图表配置 -->
+    <mapping resource="com/kszit/CDReport/cor/dao/hibernate/po/hbm/GraphConfigMainPO.hbm.xml"/>
+    <mapping resource="com/kszit/CDReport/cor/dao/hibernate/po/hbm/GraphConfigSubPO.hbm.xml"/>
+    <!-- ATM -->
+    <mapping resource="com/kszit/CDReport/cor/dao/hibernate/po/atm/WebSitPo.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="reportConfig" namespace="/reportConfig" extends="webrootpackage">
+		<!-- 配置主表-->
+		<action name="reportConfig_*" method="{1}" class="com.kszit.CDReport.cor.controler.ReportConfig">
+			<result name="input">/config/report/reportConfig.jsp</result>
+			<result name="listPage">/config/report/reportConfigList.jsp</result>
+			<result name="selectReport">/config/report/selectReportList.jsp</result>
+			<result name="mainPage">/config/report/reportConfigMain.jsp</result>
+			<result name="selectCellPage">/config/report/selectCellPage.jsp</result>
+			<result name="selectHVPartPage">/config/report/selectHVPartPage.jsp</result>
+			<result name="selectHPartPage">/config/report/selectHPartPage.jsp</result>
+			<result name="seeDataFromAllTablePage">/config/report/seeDataFromAllTablePage.jsp</result>
+			<result name="seeCellDefaultValuePage">/config/report/seeCellDefaultValuePage.jsp</result><!-- 单元格默认值设置页面 -->
+			<result name="singleCellProperyConfigPage">/config/report/singleCellProperyConfigPage.jsp</result>
+		</action>
+		<!-- 横向-->				
+		<action name="headerRowC_*" method="{1}" class="com.kszit.CDReport.cor.controler.HeaderRowConfig">
+			<result name="uiModelConfig">/config/report/UIModelConfigH.jsp</result>
+			<result name="dataFromConfigPage">/config/report/DataFromConfigH.jsp</result>
+		</action>
+		<!-- 纵向-->		
+		<action name="verticalConfigC_*" method="{1}" class="com.kszit.CDReport.cor.controler.VerticalColumnConfig">
+			<result name="uiModelConfig">/config/report/UIModelConfigV.jsp</result>
+		</action>
+		<!-- 特定   数据关系-->
+		<action name="dataFromConfig_*" method="{1}" class="com.kszit.CDReport.cor.controler.HVConfigDataFrom">
+			<result name="dataFromConfig">/config/report/DataFromConfigHSpec.jsp</result>
+			<result name="dataFromConfigHVCell">/config/report/DataFromConfigHVCell.jsp</result>
+		</action>
+		<!-- 特定   默认值-->
+		<action name="cellDefaultValue_*" method="{1}" class="com.kszit.CDReport.cor.controler.HVConfigCellDefaultValue">
+			<result name="cellValuePage">/config/report/CellDefaultValueFormPage.jsp</result>
+			<result name="oneCellValuePage">/config/report/CellDefaultValuePage.jsp</result>
+		</action>
+		
+		<!-- 特定   ui model-->		
+		<action name="uiModelConfig_*" method="{1}" class="com.kszit.CDReport.cor.controler.HVConfigUIModel">
+			<result name="uiModelConfigPage">/config/report/UIModelConfigHSpec.jsp</result>
+		</action>
+	</package>
+	<package name="reportConfig_json" namespace="/reportConfig_json" extends="json-default">
+		<!-- 保存配置主表-->
+		<action name="reportConfigSave" method="save" class="com.kszit.CDReport.cor.controler.ReportConfig" >
+			<result type="json">
+			 	<param name="ignoreHierarchy">false</param>  
+				<param name="includeProperties">actionErrors\[\d+\],actionMessages\[\d+\],fieldErrors\..+$,reportConfig\..+$</param>  
+			</result>
+		</action>
+		<!-- 已经配置报表年份  -->
+		<action name="configYearList" method="getConfigYearListJSON" class="com.kszit.CDReport.cor.controler.ReportConfig" >
+			<result type="json">
+			 	<param name="root">yearTreeList</param>  
+			</result>
+		</action>
+		<!-- 已经配置报表,  -->
+		<action name="configReportListJson" method="getConfigReportListJson" class="com.kszit.CDReport.cor.controler.ReportConfig" >
+			<result type="json">
+			 	<param name="root">configReportTreeList</param>  
+			</result>
+		</action>
+		<!-- 报表可上报单位的树形数据,  -->
+        <action name="setAppearDepartment" method="setAppearDepartment" class="com.kszit.CDReport.cor.controler.ReportConfig" >
+            <result type="json">
+                <param name="root">selectDepartmentTreeObjects</param>
+            </result>
+        </action>
+		<!-- 报表可查询单位的树形数据,  -->
+        <action name="setQueryDepartment" method="setQueryDepartment" class="com.kszit.CDReport.cor.controler.ReportConfig" >
+            <result type="json">
+                <param name="root">selectDepartmentTreeObjects</param>
+            </result>
+        </action>
+		<!-- 报表可汇总单位的树形数据,  -->
+        <action name="setColectDepartment" method="setColectDepartment" class="com.kszit.CDReport.cor.controler.ReportConfig" >
+            <result type="json">
+                <param name="root">selectDepartmentTreeObjects</param>
+            </result>
+        </action> 
+		<!-- 树形表格json数据  横向-->
+		<action name="headerRowsJson" method="headerRowsJson" class="com.kszit.CDReport.cor.controler.HeaderRowConfig" >
+			<result type="json">
+				<param name="root">headerRows</param>
+			</result>
+		</action>
+		<!-- 更新uiMODEL  横向-->
+		<action name="uiModelSaveH" method="uiModelConfigSave" class="com.kszit.CDReport.cor.controler.HeaderRowConfig" >
+			<result type="json">
+			 	<param name="ignoreHierarchy">false</param>  
+				<param name="includeProperties">actionErrors\[\d+\],actionMessages\[\d+\]</param>  
+			</result>
+		</action>
+		<!-- 更新数据关系  横向-->
+		<action name="dataFromSaveH" method="dataFromConfigSave" class="com.kszit.CDReport.cor.controler.HeaderRowConfig" >
+			<result type="json">
+			 	<param name="ignoreHierarchy">false</param>  
+				<param name="includeProperties">actionErrors\[\d+\],actionMessages\[\d+\]</param>  
+			</result>
+		</action>
+		
+		<!-- 树形表格json数据   组织机构-->
+		<action name="dataFromTypeTreeJson" method="dataFromTypeTreeJson" class="com.kszit.CDReport.cor.controler.HeaderRowConfig" >
+			<result type="json">
+				<param name="root">treeObjects</param>
+			</result>
+		</action>
+		
+		<!-- 配置横向报表时，从其他已经配置的报表中选择  -->
+        <action name="headerConfigFromOtherHVPageTreeDate" method="headerConfigFromOtherHVPageTreeDate" class="com.kszit.CDReport.cor.controler.HeaderRowConfig" >
+            <result type="json">
+                <param name="root">reportItemTree</param>
+            </result>
+        </action>  
+		
+		
+		<!-- 树形表格json数据  纵向-->
+		<action name="vertiCalcolumnJson" method="vertiCalcolumnJson" class="com.kszit.CDReport.cor.controler.VerticalColumnConfig" >
+			<result type="json">
+				<param name="root">verticalColumns</param>
+			</result>
+		</action>
+		<!-- 更新uiMODEL  纵向-->
+		<action name="uiModelSaveV" method="uiModelConfigSave" class="com.kszit.CDReport.cor.controler.VerticalColumnConfig" >
+			<result type="json">
+			 	<param name="ignoreHierarchy">false</param>  
+				<param name="includeProperties">actionErrors\[\d+\],actionMessages\[\d+\]</param>  
+			</result>
+		</action>
+		
+		<!-- 表格数据  数据关系   -->
+		<action name="dataFromJson" method="dataFromJson" class="com.kszit.CDReport.cor.controler.HVConfigDataFrom" >
+			<result type="json">
+				<param name="root">dataFromList</param>
+			</result>
+		</action>
+		
+		<!-- 表格数据  ui model  -->
+		<action name="uiModelJson" method="uiModelJson" class="com.kszit.CDReport.cor.controler.HVConfigUIModel" >
+			<result type="json">
+				<param name="root">uiModelList</param>
+			</result>
+		</action>
+		<!-- 更新单元格的数据来源 -->
+		<action name="saveCellDataFrom" method="saveCellDataFrom" class="com.kszit.CDReport.cor.controler.HVConfigDataFrom" >
+			<result type="json">
+			 	<param name="ignoreHierarchy">false</param>  
+				<param name="includeProperties">actionErrors\[\d+\],actionMessages\[\d+\]</param>  
+			</result>
+		</action>
+		
+	</package>
+</struts>

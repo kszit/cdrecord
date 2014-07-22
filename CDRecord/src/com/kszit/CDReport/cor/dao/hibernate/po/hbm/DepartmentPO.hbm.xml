@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.kszit.CDReport.cor.dao.hibernate.po">
+	<class name="DepartmentPO" table="department">
+        <id name="id" column="ID">
+            <generator class="native"/>
+        </id>
+        <property name="bindId"/>
+        <property name="parentid"/>
+        <property name="isleaf"/>
+        <property name="name"/>
+       	<property name="orderIndex"/>
+        <property name="type"/>
+        <property name="filter"/>
+       	<property name="code"/>
+        <property name="describe2"/>
+        
+    </class>
+</hibernate-mapping>

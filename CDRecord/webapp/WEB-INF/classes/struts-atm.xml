@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<!-- 组件内部的组织机构和人员-->
+<struts>
+
+    
+    <package name="atm" namespace="/atm" extends="webrootpackage">
+        <!-- 角色-->
+        <action name="websit_*" method="{1}" class="com.kszit.CDReport.cor.controler.atm.WebSitControle"></action>
+    </package>         
+    <package name="websit_json" namespace="/websit_json" extends="json-default">
+        <action name="listJson" method="listByJson" class="com.kszit.CDReport.cor.controler.atm.WebSitControle" >
+            <result type="json">
+                <param name="root">webSitMap</param>
+            </result>
+        </action>
+    </package>
+</struts>

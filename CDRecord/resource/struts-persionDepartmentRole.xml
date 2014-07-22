@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<!-- 组件内部的组织机构和人员-->
+<struts>
+
+    
+    
+    <package name="department2" namespace="/department2" extends="webrootpackage">
+        <!-- 组织机构-->
+        <action name="Department_*" method="{1}" class="com.kszit.CDReport.cor.controler.persionAndDept.Department2Controler"></action>
+    </package>
+    <package name="department2_json" namespace="/department2_json" extends="json-default">
+        <action name="listJson" method="listByJson" class="com.kszit.CDReport.cor.controler.persionAndDept.Department2Controler" >
+            <result type="json">
+                <param name="root">departmentMap</param>
+            </result>
+        </action>
+        <action name="treeJson" method="treeByJson" class="com.kszit.CDReport.cor.controler.persionAndDept.Department2Controler" >
+            <result type="json">
+                <param name="root">departmentList</param>
+            </result>
+        </action>
+    </package>
+  
+    <package name="persion2" namespace="/persion2" extends="webrootpackage">
+        <!-- 人员-->
+        <action name="Persion_*" method="{1}" class="com.kszit.CDReport.cor.controler.persionAndDept.Persion2Controler">
+            <result name="loginPage" type="redirect">/jsp/persionDepRole/login.jsp</result>
+            <result name="mainPage" type="redirect">/main.jsp</result>
+            </action>
+    </package>   
+    <package name="persion2_json" namespace="/persion2_json" extends="json-default">
+        <action name="listJson" method="listByJson" class="com.kszit.CDReport.cor.controler.persionAndDept.Persion2Controler" >
+            <result type="json">
+                <param name="root">persionMap</param>
+            </result>
+        </action>
+    </package> 
+        
+    <package name="role2" namespace="/role2" extends="webrootpackage">
+        <!-- 角色-->
+        <action name="Role_*" method="{1}" class="com.kszit.CDReport.cor.controler.persionAndDept.Role2Controler"></action>
+    </package>         
+    <package name="role_json" namespace="/role_json" extends="json-default">
+        <action name="listJson" method="listByJson" class="com.kszit.CDReport.cor.controler.persionAndDept.Role2Controler" >
+            <result type="json">
+                <param name="root">roleMap</param>
+            </result>
+        </action>
+        <!-- 角色关联的菜单配置页面的数据  -->
+        <action name="setRoleMenuTreeData" method="setRoleMenuTreeData" class="com.kszit.CDReport.cor.controler.persionAndDept.Role2Controler" >
+            <result type="json">
+                <param name="root">selectMenuTreeObjects</param>
+            </result>
+        </action>        
+    </package>
+</struts>
